@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contract reviewer</title>
+    <style> 
+        body {
+            font-family: 'Courier', monospace;
+            padding: 20px; 
+            background-color: #F7EEF3;
+            color: #333;
+        }
+        header {
+            background-color: #ffffff;
+            color: #333;
+            text-align: center;
+            padding: 1em 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Contract review</h1>
+    </header>
+
+    <input type="file">
+    <div id="confirmationMessage"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let fileInput = document.querySelector("input[type='file']");
+            if (fileInput) {
+                fileInput.addEventListener("keypress", subscribe);
+            }
+        });
+
+        function subscribe(event) {
+            if (event.key === "Enter") {
+                let confirmationMessage = document.getElementById("confirmationMessage");
+
+                if (fileInput.files.length > 0) {
+                    let file = fileInput.files[0];
+                    confirmationMessage.textContent = 'Reviewing...';
+
+                    // You can do additional processing with the file here
+                    // For example, you can access file.name, file.size, etc.
+
+                    // Here's a simple example of logging the file details:
+                    console.log("File name: ", file.name);
+                    console.log("File size: ", file.size);
+                    console.log("File type: ", file.type);
+                } else {
+                    confirmationMessage.textContent = 'Please select a file.';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
