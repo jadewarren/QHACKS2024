@@ -3,13 +3,14 @@
     padding: 0;
     font-family: "Quicksand", sans-serif;
 }
-.header{
+.header {
     min-height: 100vh;
     width: 100%;
-    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(/Users/evelyn/Downloads/bk.jpeg);
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)), url(https://github.com/jadewarren/QHACKS2024/blob/main/bk.jpeg);
     background-position: center;
-    background-color: cover;
+    background-size: cover;
     position: relative;
+    background-repeat: no-repeat;
 }
 nav{
     display: flex;
@@ -17,6 +18,7 @@ nav{
     justify-content: space-between;
     align-items: center;
 }
+
 nav img{
     width: 50px;
 }
@@ -81,7 +83,7 @@ nav img{
 .contact{
     min-height: 100vh;
     width: 100%;
-    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(/Users/evelyn/Downloads/contactphoto.jpeg);
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(https://github.com/jadewarren/QHACKS2024/blob/main/contactphoto.jpeg);
     background-position: center;
     background-color: cover;
     position: relative;
@@ -109,11 +111,12 @@ label:hover{
     color: #ffcbfb;
     border: 1px dashed #ffcbfb
 }
+
 /*----- about ----*/
 .about{
     min-height: 25vh;
     width: 100%;
-    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(/Users/evelyn/Downloads/adsf.jpeg);
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(https://github.com/jadewarren/QHACKS2024/blob/main/pic.jpeg);
     background-position: center;
     background-color: cover;
     position: relative;
@@ -139,35 +142,4 @@ p{
     margin-top: 5%;
     display: flex;
     justify-content: space-between;
-}
-.team-col{
-    flex-basis: 31%;
-    background: #fff3f3;
-    border-radius: 10px;
-    margin-bottom: 5%;
-    padding: 30px 12px;
-    box-sizing: border-box;
-    text-align: center;
-}
-.profile-container {
-    display: inline-block;
-    margin-bottom: 10px;
-}
-.profile-image {
-    border-radius: 50%; /* Make it a circle */
-    margin: 0 auto; /* Center horizontally */
-    display: block; /* Ensure it's a block element */
-}
-
-.team-col:nth-child(1) .profile-image {
-    width: 120px;
-    height: 180px;
-}
-.team-col:nth-child(2) .profile-image {
-    width: 150px;
-    height: 150px;
-}
-.team-col:nth-child(3) .profile-image {
-    width: 130px;
-    height: 180px;
 }
