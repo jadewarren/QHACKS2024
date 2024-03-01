@@ -1,0 +1,49 @@
+#throw these into your terminal
+"""
+pip install spacy pymupdf
+python -m spacy download en_core_web_sm
+"""
+
+import fitz  # PyMuPDF
+import spacy
+
+# Function to extract text from PDF
+def extract_text_from_pdf(pdf_path):
+    doc = fitz.open(pdf_path)
+    text = ""
+    for page in doc:
+        text += page.get_text()
+    return text
+
+# Load the spaCy model
+nlp = spacy.load("en_core_web_sm")
+
+# Hard-code paths to the PDF files
+User_pdf_path = '/Users/elizabetharmstrong/Downloads/QHacks/Ontario_Standard_Lease_2021.pdf'
+Standard_pdf_path = '/Users/elizabetharmstrong/Downloads/QHacks/154_lease_copy.pdf'
+
+# Extract text from both PDFs
+User_text = extract_text_from_pdf(User_pdf_path)
+Standard_text = extract_text_from_pdf(Standard_pdf_path)
+
+# Tokenize and normalize the texts
+User_doc = nlp(User_text.lower())
+Standard_doc = nlp(Standard_text.lower())
+
+# Convert docs to sets of words
+User_words = set(token.text for token in User_doc if token.is_alpha)
+Standard_words = set(token.text for token in Standard_doc if token.is_alpha)
+
+# Find the difference
+unique_to_user = User_words - Standard_words
+unique_to_standard = Standard_words - User_words
+
+# Print the unique words for user
+print("Words in user text but not in standard text:")
+for word in sorted(unique_to_user):
+    print(word)
+
+# Print the unique words for standard
+print("Words in standard text but not in user text:")
+for word in sorted(unique_to_standard):
+    print(word)
